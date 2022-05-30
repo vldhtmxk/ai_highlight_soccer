@@ -18,6 +18,7 @@ def main():
         vp.save_image(ct.get_gray(frame), 'new3/jjan/frames/frame_{}.jpg'.format(i))
         final_result = []
         copy = ct.resize(frame)
+
         cropped_images = ct.image_all_process(copy)[1]
         num = 0
         # 한 프레임의 글자 영역들의 텍스트 추출 

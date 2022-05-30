@@ -1,11 +1,16 @@
 # requirements for videoTotext
 
 matplotlib~=2.1.2
-numpy~=1.14.0
-opencv-python~=3.4.0.12
+numpy~=1.23.0rc1
+opencv-python~=4.5.5.64
 
 pytesseract==0.2.0
 
 tensorflow==1.12.2
 
 
+
+setuptools~=62.3.2
+google~=3.0.0
+keras~=2.9.0
+Pillow~=9.1.1

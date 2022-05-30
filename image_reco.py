@@ -26,6 +26,7 @@ def extract_text(tmp_image):
 	# ret3, imgae_otsu = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 	# gray = cv2.medianBlur(gray, 10)
 	result = pytesseract.image_to_string(image, lang=config.RECO_CONFIG['lang'], config=config.RECO_CONFIG['custom_oem_psm_config'])
+
 	# print('Origin Result \n' + result )
 
 	

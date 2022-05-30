@@ -46,6 +46,7 @@ def save_image(image, path):
 	:param image: 프레임 
 	:param count: 초   
 	"""
+
 	cv2.imwrite(path, image)
 
 if __name__ == "__main__":
