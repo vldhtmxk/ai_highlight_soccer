@@ -10,7 +10,7 @@ def main():
     fianl_result_array = []
     section_result_array = []
 
-    video_path = 'test_video/video1.mp4'
+    video_path = 'test_video/twenty.mp4'
     # video에서 프레임 추출 
     frame_images = vp.extract_frame_from_video(video_path)
     # 추출된 프레임에서 글자 영역 찾기 
