@@ -41,5 +41,5 @@ RECO_CONFIG = {
     "tesseract": 'C:/Program Files/Tesseract-OCR/tesseract.exe',
     "custom_oem_psm_config": '--oem 3 --psm 6',
     "custom_config": '--psm 1 -c preserve_interword_spaces=1',
-    "lang": 'kor'
+    "lang": 'eng'
 }

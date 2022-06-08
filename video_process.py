@@ -1,6 +1,6 @@
 import cv2
 from PIL import Image
-import image_process as ct 
+import image_process as ct
 import text_process as txt
 import datetime
 
@@ -11,7 +11,7 @@ def extract_frame_from_video(video_path) :
 	:param video_path: 동영상 경로 
 	:return: 프레임들이 저장되어 있는 배열 
 	"""
-	frame_images=[]
+	frame_images = []
 	vidcap = cv2.VideoCapture(video_path)
 	fps = vidcap.get(cv2.CAP_PROP_FPS)
 	timestamps = [vidcap.get(cv2.CAP_PROP_POS_MSEC)]
@@ -19,7 +19,6 @@ def extract_frame_from_video(video_path) :
 
 	count=0
 	success=True
-
 	while(vidcap.isOpened()):
 		vidcap.set(cv2.CAP_PROP_POS_MSEC, (count*1000))
 		success, image = vidcap.retrieve()
@@ -33,7 +32,7 @@ def extract_frame_from_video(video_path) :
 		else:
 			break
 
-		frame_images.append(image)
+		frame_images.append(image[10:60, 70:350].copy())
 		count += 1
 
 	vidcap.release()
@@ -46,8 +45,7 @@ def save_image(image, path):
 	:param image: 프레임 
 	:param count: 초   
 	"""
-
-	cv2.imwrite(path, image)
+	cv2.imwrite(path,image)
 
 if __name__ == "__main__":
 	pass

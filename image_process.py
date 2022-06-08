@@ -7,9 +7,11 @@ from PIL import Image
 
 def sec_resize(path):
     image = Image.open(path)
-    crop = image.crop(10, 10, 100, 100)
-    crop.save('c'+path)
+    crop = image.crop(10, 10, 50, 50)
+    crop.save('c' + path)
     return path
+
+
 def resize(image, flag=-1):
     """
 	비디오에서 1초당 하나의 프레임을 추출합니다.
@@ -23,6 +25,7 @@ def resize(image, flag=-1):
 
     height, width = image.shape[:2]
     image_copy = image.copy()
+
     # print original size (width, height)
     # print("origin (width : " + str(width) + ", height : " + str(height) + ")")
     rate = 1  # default
@@ -235,7 +238,7 @@ def get_cropped_images(image_origin, contours):
         cropped = image_copy[row_from: row_to, col_from: col_to]
         cropped_images.append(cropped)  # add to the list
 
-    if (len(draw_section) > 0):
+    if len(draw_section) > 0:
         x, y, width, height = cv2.boundingRect(draw_section.pop())
         # area = cv2.contourArea(draw_section.pop())
         if width * height > 2500:
