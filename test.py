@@ -2,6 +2,7 @@ import video_process as vp
 import image_process as ct
 import image_reco as reco
 import text_process as txt
+import os
 import cv2
 
 
@@ -9,6 +10,7 @@ def main():
     # =================== 동영상 테스트 ================================
     fianl_result_array = []
     section_result_array = []
+    hightlight_result_array = []
 
     video_path = 'test_video/ten.mp4'
     # video에서 프레임 추출 
@@ -50,7 +52,22 @@ def main():
     # 모든 결과 값들 저장 하기 
     txt.text_save(fianl_result_array, section_result_array, 'result.csv')
 
+#list.txt 파일에 "file 'video_clip{}.mp4'"의 값을 추가
+#a 에 하이라이트 추출 값이 들어가면 됨
+list= r"C:\Users\user\PycharmProjects\ai_highlight_soccer"
+
+while hightlight_result_array.len:
+    for i in hightlight_result_array:
+        with open (list, 'a') as f:
+            f.write("file 'video_clip{}.mp4'\r\n")
+        os.system("ffmpeg -i Fullvideo.mp4 -ss {a} -to {a} -c copy video_clip{}.mp4")
+
+#list에 있는 하이라이트 비디오 를 모두 통합한다.
+os.system("ffmpeg -f concat -safe 0 -i list.txt -c copy highlightvideo.mp4")
+
+
 
 if __name__ == "__main__":
     main()
     # vision_test('output/frames/frame308.jpg')
+
