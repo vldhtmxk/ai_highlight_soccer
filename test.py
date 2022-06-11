@@ -2,9 +2,9 @@ import video_process as vp
 import image_process as ct
 import image_reco as reco
 import text_process as txt
-import os
-import test_video_crop as hight
+import test_video_crop as tvc
 import cv2
+import os
 
 
 def main():
@@ -43,7 +43,7 @@ def main():
 
         # 섹션 
         # 섹션 영역 저장
-        ct.save_crooped_contours(cropped_images["section"], 'sections/section_{}'.format(i))
+        ct.save_crooped_contours(cropped_images["section"], 'section_{}'.format(i))
         # 섹션에서 글자 추출 
         section = reco.extract_text(cropped_images["section"])
         # 추출된 글자 전처리 후 저장 
@@ -52,16 +52,16 @@ def main():
 
     # 모든 결과 값들 저장 하기 
     txt.text_save(fianl_result_array, section_result_array, 'result.csv')
-list = r"C:/Users/user/PycharmProjects/ai_highlight_soccer/list.txt"
+    # 하이라이트 영상 편집 하기
+    highlight_result_array = tvc.readCSV()
 
+    while highlight_result_array.len :
+        for i in highlight_result_array :
+            with open(list, 'a') as f:
+                f.write("file 'test_video/video_clip{}.mp4'")
+            os.system(" ")
 
-for i in highlight_result_array:
-    with open(list, 'a') as f:
-        f.write("file 'test_video/video_clip{}.mp4'")
-    os.system("ffmpeg -i Fullvideo.mp4 -ss 00:00:04 -to 00:00:10 -c copy test_video/video_clip{}.mp4")
-
-
-os.system("ffmpeg -f concat -safe 0 -i list.txt -c copy highlightvideo.mp4")
+    os.sysem("ffmpeg")
 
 if __name__ == "__main__":
     main()

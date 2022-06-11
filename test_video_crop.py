@@ -7,11 +7,13 @@ def readCSV():
     compare = ""
     while True:
         time = result.readline()
-        slice = time[22:-2]
-        '''bordeaux 0 1 paris sg 일때'''
-        print(time[3:10])
+        slice = time[23:-2]
+        '''ex) bordeaux 0 1 paris sg 일때'''
+
         if slice != compare:
-            highlights.append((time[3:10]))
+            print(time[3:11])
+            highlights.append((time[3:11]))
+            print(time[23:-2])
         compare = slice
         if time == "":
             break;
