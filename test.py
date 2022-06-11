@@ -2,6 +2,8 @@ import video_process as vp
 import image_process as ct
 import image_reco as reco
 import text_process as txt
+import os
+import test_video_crop as hight
 import cv2
 
 
@@ -9,8 +11,9 @@ def main():
     # =================== 동영상 테스트 ================================
     fianl_result_array = []
     section_result_array = []
+    highlight_result_array = []
 
-    video_path = 'test_video/ten.mp4'
+    video_path = 'Fullvideo.mp4'
     # video에서 프레임 추출 
     frame_images = vp.extract_frame_from_video(video_path)
     # 추출된 프레임에서 글자 영역 찾기
@@ -49,7 +52,16 @@ def main():
 
     # 모든 결과 값들 저장 하기 
     txt.text_save(fianl_result_array, section_result_array, 'result.csv')
+list = r"C:/Users/user/PycharmProjects/ai_highlight_soccer/list.txt"
 
+
+for i in highlight_result_array:
+    with open(list, 'a') as f:
+        f.write("file 'test_video/video_clip{}.mp4'")
+    os.system("ffmpeg -i Fullvideo.mp4 -ss 00:00:04 -to 00:00:10 -c copy test_video/video_clip{}.mp4")
+
+
+os.system("ffmpeg -f concat -safe 0 -i list.txt -c copy highlightvideo.mp4")
 
 if __name__ == "__main__":
     main()
