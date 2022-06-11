@@ -3,6 +3,7 @@ import image_process as ct
 import image_reco as reco
 import text_process as txt
 import cv2
+import os
 
 
 def main():
@@ -10,7 +11,7 @@ def main():
     fianl_result_array = []
     section_result_array = []
 
-    video_path = 'test_video/ten.mp4'
+    video_path = 'test_video/twenty.mp4'
     # video에서 프레임 추출 
     frame_images = vp.extract_frame_from_video(video_path)
     # 추출된 프레임에서 글자 영역 찾기
@@ -40,7 +41,7 @@ def main():
 
         # 섹션 
         # 섹션 영역 저장
-        ct.save_crooped_contours(cropped_images["section"], 'sections/section_{}'.format(i))
+        ct.save_crooped_contours(cropped_images["section"], 'section_{}'.format(i))
         # 섹션에서 글자 추출 
         section = reco.extract_text(cropped_images["section"])
         # 추출된 글자 전처리 후 저장 
@@ -49,7 +50,6 @@ def main():
 
     # 모든 결과 값들 저장 하기 
     txt.text_save(fianl_result_array, section_result_array, 'result.csv')
-
 
 if __name__ == "__main__":
     main()
