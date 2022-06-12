@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/videoTotext.iml" filepath="$PROJECT_DIR$/.idea/videoTotext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ai_highlight_soccer.iml" filepath="$PROJECT_DIR$/.idea/ai_highlight_soccer.iml" />
     </modules>
   </component>
 </project>
