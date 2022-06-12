@@ -52,12 +52,12 @@ def main():
         # section_result_array.append(section)
 
     # 모든 결과 값들 저장 하기 
-    txt.text_save(fianl_result_array, section_result_array, 'result.csv')
+    txt.text_save(fianl_result_array, section_result_array, 'result3.csv')
     # 하이라이트 영상 편집 하기
     highlight_result_array = tvc.readCSV()
 
-    while highlight_result_array.len:
-        for i in highlight_result_array:
+    while highlight_result_array.count() :
+        for i in highlight_result_array :
             with open(list, 'a') as f:
                 f.write("file 'test_video/video_clip{}.mp4'")
             startTime=time.fromisoformat(highlight_result_array[i]*100-60)
