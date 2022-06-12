@@ -43,7 +43,7 @@ def main():
 
         # 섹션 
         # 섹션 영역 저장
-        ct.save_crooped_contours(cropped_images["section"], 'section_{}'.format(i))
+        ct.save_crooped_contours(cropped_images["section"], 'sections/section_{}'.format(i))
         # 섹션에서 글자 추출 
         section = reco.extract_text(cropped_images["section"])
         # 추출된 글자 전처리 후 저장 
@@ -55,7 +55,7 @@ def main():
     # 하이라이트 영상 편집 하기
     highlight_result_array = tvc.readCSV()
 
-    while highlight_result_array.count() :
+    while highlight_result_array.len :
         for i in highlight_result_array :
             with open(list, 'a') as f:
                 f.write("file 'test_video/video_clip{}.mp4'")
