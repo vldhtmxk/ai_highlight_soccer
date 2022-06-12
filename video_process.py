@@ -28,7 +28,7 @@ def extract_frame_from_video(video_path) :
 		frame_exists, curr_frame = vidcap.read()
 		if frame_exists:
 			timestamps.append(vidcap.get(cv2.CAP_PROP_POS_MSEC))
-			calc_timestamps.append(calc_timestamps[-1] + 1000/fps)
+			calc_timestamps.append(calc_timestamps[-1] + 300/fps)
 		else:
 			break
 

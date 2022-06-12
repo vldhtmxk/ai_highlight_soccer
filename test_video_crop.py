@@ -2,24 +2,24 @@ from typing import IO
 
 
 def readCSV():
-    result = open('C:/Users/User/PycharmProjects/videoTotext/result.csv')
+    result = open('C:/Users/User/PycharmProjects/ai_highlight_soccer/result.csv')
     highlights=[];
     compare = ""
     while True:
         time = result.readline()
+        if time == "":
+            break;
         slice = time[19:-2]
         '''ex) bordeaux 0 1 paris sg 일때'''
 
         if slice != compare:
-            print(time[:8])
             highlights.append((time[:8]))
-            print(time[19:-2])
+            aa = time[:8][6:]
+            print(int(aa))
         compare = slice
-        if time == "":
-            break;
 
     return highlights
 
 if __name__ == "__main__":
     readCSV()
-    # vision_test('output/frames/frame308.jpg')
+    # vision_test('output/frames/frame308.jpg'
