@@ -1,11 +1,14 @@
+import make_hilight
 import video_process as vp
 import image_process as ct
 import image_reco as reco
 import text_process as txt
 import test_video_crop as tvc
+import make_hilight as mh
 import time
 import cv2
 import os
+
 
 
 def main():
@@ -14,7 +17,7 @@ def main():
     section_result_array = []
     highlight_result_array = []
 
-    video_path = 'Fullvideo.mp4'
+    video_path = 'test_video/twenty.mp4'
     # video에서 프레임 추출 
     frame_images = vp.extract_frame_from_video(video_path)
     # 추출된 프레임에서 글자 영역 찾기
@@ -54,17 +57,7 @@ def main():
     # 모든 결과 값들 저장 하기 
     txt.text_save(fianl_result_array, section_result_array, 'result3.csv')
     # 하이라이트 영상 편집 하기
-    highlight_result_array = tvc.readCSV()
-
-    while highlight_result_array.len :
-        for i in highlight_result_array :
-            with open(list, 'a') as f:
-                f.write("file 'test_video/video_clip{}.mp4'")
-            startTime=time.fromisoformat(highlight_result_array[i]*100-60)
-            endTime=time.fromisoformat(startTime+60)
-            os.system("ffmpeg -i Fullvideo.mp4 -ss startTime -to endTime -c copy test_video/video_clip{}.mp4")
-
-    os.system("ffmpeg -f concat -safe 0 -i list.txt -c copy highlightvideo.mp4")
+    mh.make_highlight()
 
 if __name__ == "__main__":
     main()
