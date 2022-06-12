@@ -3,6 +3,7 @@ import image_process as ct
 import image_reco as reco
 import text_process as txt
 import test_video_crop as tvc
+import time
 import cv2
 import os
 
@@ -55,13 +56,15 @@ def main():
     # 하이라이트 영상 편집 하기
     highlight_result_array = tvc.readCSV()
 
-    while highlight_result_array.len :
-        for i in highlight_result_array :
+    while highlight_result_array.len:
+        for i in highlight_result_array:
             with open(list, 'a') as f:
                 f.write("file 'test_video/video_clip{}.mp4'")
-            os.system(" ")
+            startTime=time.fromisoformat(highlight_result_array[i]*100-60)
+            endTime=time.fromisoformat(startTime+60)
+            os.system("ffmpeg -i Fullvideo.mp4 -ss startTime -to endTime -c copy test_video/video_clip{}.mp4")
 
-    os.sysem("ffmpeg")
+    os.system("ffmpeg -f concat -safe 0 -i list.txt -c copy highlightvideo.mp4")
 
 if __name__ == "__main__":
     main()
