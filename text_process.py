@@ -34,6 +34,7 @@ def text_save(final_result, section, path):
 	f = open(path, 'w', encoding='utf-8', newline='')
 	wr = csv.writer(f)
 
+
 	num = 1
 
 	index=[]
@@ -61,13 +62,14 @@ def text_save(final_result, section, path):
 			final_content.append(d_content)
 
 	for j in range(0, len(final_content)):
-		wr.writerow([ final_content[j]["start"],  final_content[j]["end"], final_content[j]["section"], final_content[j]["contents"]])
+		wr.writerow([ final_content[j]["start"],  final_content[j]["end"], final_content[j]["contents"]])
 
 	f.close()
 
 def directory_save(dic, section, path):
 	f = open(path, 'w', encoding='utf-8', newline='')
 	wr = csv.writer(f)
+
 	
 	final_content=[]
 	for k, v in dic.items():
@@ -79,4 +81,4 @@ def directory_save(dic, section, path):
 		final_content.append(d_content)
 
 	for j in range(0, len(final_content)):
-		wr.writerow([ final_content[j]["start"],  final_content[j]["end"], final_content[j]["section"], final_content[j]["contents"]])
+		wr.writerow([ final_content[j]["start"],  final_content[j]["end"], final_content[j]["contents"]])
